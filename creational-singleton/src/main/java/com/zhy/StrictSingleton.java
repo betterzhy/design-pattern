@@ -31,17 +31,4 @@ public class StrictSingleton implements Serializable {
     protected Object readResolve() {
         return getInstance();
     }
-
-    /**
-     * 测试反射
-     */
-    public static void main(String[] args) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
-        StrictSingleton instance = StrictSingleton.getInstance();
-
-        Constructor<StrictSingleton> constructor = StrictSingleton.class.getDeclaredConstructor();
-        constructor.setAccessible(true);
-        StrictSingleton strictSingleton = constructor.newInstance();
-
-        System.out.println(instance == strictSingleton);
-    }
 }
