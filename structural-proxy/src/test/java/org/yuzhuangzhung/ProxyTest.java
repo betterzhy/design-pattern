@@ -1,6 +1,9 @@
 package org.yuzhuangzhung;
 
 import daynamicproxy.*;
+import daynamicproxy.service.Dog;
+import daynamicproxy.service.Movable;
+import daynamicproxy.service.Person;
 import org.junit.jupiter.api.Test;
 
 
@@ -12,17 +15,17 @@ public class ProxyTest {
      */
     @Test
     public void interfaceProxyTest() {
-        ProxyGenerator cp = new ProxyGenerator();
-        cp.setTarget(new Person());
-        Movable targetProxy = (Movable) cp.getTargetProxy();
+        JDKProxy proxy = new JDKProxy();
+        proxy.setTarget(new Person());
+        Movable targetProxy = (Movable) proxy.getTargetProxy();
         targetProxy.move();
     }
 
     @Test
     public void subclassProxyTest() {
-        SubclassProxy cp = new SubclassProxy();
-        cp.setTarget(new Dog());
-        Dog targetProxy = (Dog) cp.getTargetProxy();
+        CGlibProxy proxy = new CGlibProxy();
+        proxy.setTarget(new Dog());
+        Dog targetProxy = (Dog) proxy.getTargetProxy();
         targetProxy.move();
     }
 }

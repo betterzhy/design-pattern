@@ -1,10 +1,12 @@
 import com.zhy.StrictSingleton;
+import org.junit.jupiter.api.Test;
 
 import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
 
 public class SingletonTest {
     @Test
-    public void strictSingletonTest() {
+    public void strictSingletonTest() throws NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
         StrictSingleton instance = StrictSingleton.getInstance();
 
         Constructor<StrictSingleton> constructor = StrictSingleton.class.getDeclaredConstructor();
