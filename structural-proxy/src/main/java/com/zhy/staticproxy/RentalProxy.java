@@ -1,4 +1,4 @@
-package staticproxy;
+package com.zhy.staticproxy;
 
 interface Rentable {
     void rent();

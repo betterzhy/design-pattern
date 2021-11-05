@@ -1,4 +1,4 @@
-package daynamicproxy;
+package com.zhy.daynamicproxy;
 
 import net.sf.cglib.proxy.Enhancer;
 import net.sf.cglib.proxy.MethodInterceptor;
@@ -23,7 +23,9 @@ public class CGlibProxy implements MethodInterceptor {
         Object rtValue = null;
         try {
             // TODO 前置增强
+            System.out.println("CGlib前置增强");
             rtValue = method.invoke(target, args);
+            System.out.println("CGlib后置增强");
             // TODO 后置增强
         } catch (Exception e) {
             // TODO

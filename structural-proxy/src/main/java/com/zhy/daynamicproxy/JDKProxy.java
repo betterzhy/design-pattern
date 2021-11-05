@@ -1,4 +1,4 @@
-package daynamicproxy;
+package com.zhy.daynamicproxy;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
@@ -21,7 +21,9 @@ public class JDKProxy implements InvocationHandler {
         Object rtValue = null;
         try {
             // TODO 前置增强
+            System.out.println("JDKProxy前置增强");
             rtValue = method.invoke(target, args);
+            System.out.println("JDKProxy后置增强");
             // TODO 后置增强
         } catch (Exception e) {
             // TODO
